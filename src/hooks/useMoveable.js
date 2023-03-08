@@ -68,6 +68,7 @@ const useMoveable = () => {
 
   return {
     moveableComponents,
+    setMoveableComponents,
     selected,
     setSelected,
     addMoveable,

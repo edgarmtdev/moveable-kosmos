@@ -14,6 +14,7 @@ const Component = ({
   setSelected,
   isSelected = false,
   updateEnd,
+  deleteComponent,
 }) => {
   const ref = useRef();
 
@@ -81,7 +82,6 @@ const Component = ({
    * @param {*} e
    */
   const onResizeEnd = async (e) => {
-    console.log(e);
     let newWidth = e.lastEvent?.width;
     let newHeight = e.lastEvent?.height;
 
@@ -94,8 +94,8 @@ const Component = ({
       newWidth = parentBounds?.width - left;
 
     const { lastEvent } = e;
-    const { drag } = lastEvent;
-    const { beforeTranslate } = drag;
+    // const { drag } = lastEvent;
+    // const { beforeTranslate } = drag;
 
     // const absoluteTop = top + beforeTranslate[1];
     // const absoluteLeft = left + beforeTranslate[0];
@@ -161,7 +161,9 @@ const Component = ({
           backgroundSize: "cover",
         }}
         onClick={() => setSelected(id)}
-      />
+      >
+        <button onClick={() => deleteComponent(id)}>Click</button>
+      </div>
       <Moveable
         target={isSelected && ref.current}
         resizable

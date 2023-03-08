@@ -5,6 +5,7 @@ import styled from "./main.module.css";
 const Main = () => {
   const {
     moveableComponents,
+    setMoveableComponents,
     selected,
     setSelected,
     addMoveable,
@@ -12,16 +13,23 @@ const Main = () => {
     handleResizeStart,
   } = useMoveable();
 
+  const deleteComponent = (id) => {
+    setMoveableComponents((current) =>
+      current.filter((item) => item.id !== id)
+    );
+  };
+
   return (
     <main className={styled.main}>
-      <button onClick={addMoveable}>Add Moveable1</button>
+      <button onClick={addMoveable} className={styled.button}>Add Moveable</button>
       <div
         id="parent"
         style={{
           position: "relative",
           background: "black",
           height: "80vh",
-          width: "80vw",
+          marginTop: "1rem",
+          borderRadius: "2px"
         }}
       >
         {moveableComponents.map((item, index) => (
@@ -32,6 +40,7 @@ const Main = () => {
             handleResizeStart={handleResizeStart}
             setSelected={setSelected}
             isSelected={selected === item.id}
+            deleteComponent={deleteComponent}
           />
         ))}
       </div>

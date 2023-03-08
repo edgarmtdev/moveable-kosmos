@@ -1,7 +1,7 @@
 import Component from "./components/moveable";
 import useMoveable from "../../hooks/useMoveable";
 import styled from "./main.module.css";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 const Main = () => {
   const ref = useRef();

@@ -20,7 +20,6 @@ const Component = ({
   const ref = useRef();
 
   const [cover, setCover] = useState(true);
-
   const [nodoReferencia, setNodoReferencia] = useState({
     top,
     left,
@@ -35,7 +34,7 @@ const Component = ({
   let parentBounds = parent?.getBoundingClientRect();
 
   /**
-   * Funcion que se ejecuta al realizar el dimensionamiento de la figura
+   * Function executed when sizing the figure
    * @param {*} e
    */
   const onResize = async (e) => {
@@ -81,7 +80,7 @@ const Component = ({
   };
 
   /**
-   * Funcion que se ejecuta al terminar de realizar el dimensionamiento de la figura
+   * Function that is executed when finishing sizing the figure
    * @param {*} e
    */
   const onResizeEnd = async (e) => {
@@ -116,7 +115,10 @@ const Component = ({
       true
     );
   };
-
+  /**
+   * Function executed when dragging the figure
+   * @param {*} e 
+   */
   const onDrag = (e) => {
     updateMoveable(
       id,
@@ -131,7 +133,10 @@ const Component = ({
       true
     );
   };
-
+  /**
+   * Function that is executed when finishing dragging the figure
+   * @param {*} E 
+   */
   const onDragEnd = (E) => {
     updateMoveable(
       id,

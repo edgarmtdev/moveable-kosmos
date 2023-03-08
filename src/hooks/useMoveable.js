@@ -7,6 +7,11 @@ const useMoveable = () => {
   const [moveableComponents, setMoveableComponents] = useState([]);
   const [selected, setSelected] = useState(null);
 
+  /**
+   * Through a random id it brings information from the api
+   * @param {number} id
+   * @returns
+   */
   const fetchData = async (id) => {
     const resp = await fetch(
       `https://jsonplaceholder.typicode.com/photos/${id}`
@@ -15,6 +20,9 @@ const useMoveable = () => {
     return data;
   };
 
+  /**
+   * Use the function to retrieve information and generate a new component
+   */
   const addMoveable = () => {
     const photoId = Math.floor(Math.random() * 100);
 

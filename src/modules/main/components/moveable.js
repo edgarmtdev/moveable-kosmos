@@ -15,8 +15,11 @@ const Component = ({
   isSelected = false,
   updateEnd,
   deleteComponent,
+  root,
 }) => {
   const ref = useRef();
+
+  const [cover, setCover] = useState(true);
 
   const [nodoReferencia, setNodoReferencia] = useState({
     top,
@@ -158,13 +161,36 @@ const Component = ({
           backgroundImage: `url("${imgUrl}")`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          backgroundSize: cover ? "contain" : "cover",
         }}
         onClick={() => setSelected(id)}
       >
-        <button onClick={() => deleteComponent(id)}>Click</button>
+        <button
+          onClick={() => deleteComponent(id)}
+          style={{
+            border: "none",
+            padding: "5px",
+            fontSize: "10px",
+            cursor: "pointer",
+          }}
+        >
+          Delete
+        </button>
+        <button
+          onClick={() => setCover(!cover)}
+          style={{
+            border: "none",
+            marginLeft: "5px",
+            padding: "5px",
+            fontSize: "10px",
+            cursor: "pointer",
+          }}
+        >
+          {cover ? "Cover" : "Contain"}
+        </button>
       </div>
       <Moveable
+        rootContainer={root.current}
         target={isSelected && ref.current}
         resizable
         draggable

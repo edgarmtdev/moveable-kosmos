@@ -1,14 +1,21 @@
 .main {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
 }
 
 .button {
-    padding: 10px;
-    background-color: rgb(20, 93, 240);
-    color: #fff;
-    border: none;
-    border-radius: 2px;
+  padding: 10px;
+  background-color: rgb(20, 93, 240);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 300ms;
+}
+.button:hover {
+    opacity: 0.9;
+    transform: scale(1.01);
+    transition: 300ms;
 }
